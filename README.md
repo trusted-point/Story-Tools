@@ -72,7 +72,7 @@ go version
 ```bash
 git clone https://github.com/piplabs/story
 cd ./story
-git checkout v0.12.1
+git checkout 20fed5ed45d39c9ac59ab17c03ff3b1efac0f7b2
 go build -o story ./client
 cp ./story $HOME/go/bin
 story version
