@@ -72,7 +72,7 @@ go version
 ```bash
 git clone https://github.com/piplabs/story
 cd ./story
-git checkout v0.11.0
+git checkout v0.12.1
 go build -o story ./client
 cp ./story $HOME/go/bin
 story version
@@ -81,14 +81,14 @@ story version
 ```bash
 git clone https://github.com/piplabs/story-geth.git
 cd ./story-geth
-git checkout v0.9.4
+git checkout v0.10.0
 make geth
 cp ./build/bin/geth $HOME/go/bin
 geth version
 ```
 ### 4. initialize story client working env
 ```bash
-story init --network iliad --moniker "Your_Node_Name"
+story init --network odyssey --moniker "Your_Node_Name"
 ```
 ### 5. Create story client service file
 ```bash
@@ -126,7 +126,7 @@ After=network.target
 [Service]
 User=$USER
 Type=simple
-ExecStart=$(which geth) --iliad --syncmode full
+ExecStart=$(which geth) --odyssey --syncmode full
 Restart=on-failure
 LimitNOFILE=65535
 
@@ -170,7 +170,7 @@ cp $HOME/.story/story/data/priv_validator_state.json $HOME/.story/story/priv_val
 ### 6. Reset DBs
 ```bash
 rm -rf $HOME/.story/story/data
-rm -rf $HOME/.story/geth/iliad/geth/chaindata
+rm -rf $HOME/.story/geth/odyssey/geth/chaindata
 ```
 ### 7. Extract story client snapshot
 ```bash
@@ -178,7 +178,7 @@ lz4 -d -c ./latest_story_snapshot.tar.lz4 | tar -xf - -C $HOME/.story/story
 ```
 ### 8. Extract geth snapshot
 ```bash
-lz4 -d -c ./latest_geth_snapshot.tar.lz4 | tar -xf - -C $HOME/.story/geth/iliad/geth
+lz4 -d -c ./latest_geth_snapshot.tar.lz4 | tar -xf - -C $HOME/.story/geth/odyssey/geth
 ```
 ### 9. Move priv_validator_state.json back
 ```bash
